@@ -1,0 +1,9 @@
+source:
+  path: lfa1
+  format: csv
+
+table:
+  name: vendor
+
+audit_columns:
+  ingest_ts: _ingest_ts

@@ -1,0 +1,9 @@
+columns:
+  LIFNR: vendor_id
+  NAME1: vendor_name
+  LAND1: country
+  ORT01: city
+  REGIO: region
+  STRAS: street
+  PSTLZ: postal_code
+  ERDAT: created_date

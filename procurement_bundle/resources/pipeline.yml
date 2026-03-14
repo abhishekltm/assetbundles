@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    procurement_pipeline:
+      name: procurement_dev
+      schema: default
+      catalog: workspace
+
+      serverless: true
+
+      libraries:
+  
+         # - file:
+         #      path: ../src/**/*.py
+         # - file:
+         #      path: ../src/procurement/pipelines/bronze/*.py
+         # - file:
+         #      path: ../src/procurement/pipelines/silver/*.py
+
+
+

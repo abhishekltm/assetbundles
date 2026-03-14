@@ -1,0 +1,17 @@
+bundle:
+  name: procurement-bundle
+
+artifacts:
+  procurement_pkg:
+    type: whl
+    path: .
+    build: pip install build && python3 -m build --wheel --outdir dist
+
+targets:
+  dev:
+    workspace:
+      host: https://dbc-2e428544-5bd8.cloud.databricks.com/
+    mode: development
+
+include:
+  - resources/*.yml

@@ -1,0 +1,9 @@
+columns:
+  LIFNR: vendor_id
+  BUKRS: company_code
+  AKONT: reconciliation_account
+  ZTERM: payment_terms
+  ZWELS: payment_method
+  FDGRV: planning_group
+  ERDAT: created_date
+  PRICE: price

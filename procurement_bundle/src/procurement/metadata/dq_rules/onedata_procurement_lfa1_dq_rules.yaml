@@ -1,0 +1,4 @@
+dq_rules:
+  - name: not_null_pks
+    rule: "vendor_id IS NOT NULL"
+ 
