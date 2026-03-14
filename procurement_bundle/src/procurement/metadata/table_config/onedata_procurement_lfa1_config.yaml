@@ -1,0 +1,21 @@
+domain: procurement
+entity: lfa1
+format: csv
+
+keys:
+  primary: vendor_id
+
+tables:
+  bronze_table: bronze_lfa1
+  silver_table: silver_lfa1
+
+columns:
+  LIFNR: vendor_id
+  NAME1: vendor_name
+  LAND1: country
+  ORT01: city
+  REGIO: region
+  STRAS: street
+  PSTLZ: postal_code
+  ERDAT: created_date
+ 

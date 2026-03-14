@@ -1,0 +1,30 @@
+resources:
+  pipelines:
+    pipeline_onedata_procurement:
+      name: oneData_Procurement_${var.env}
+      libraries:
+        - glob:
+            include: ../src/procurement_etl/transformations/**
+      schema: default
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: workspace
+      serverless: true
+      root_path: ../src/procurement_etl
+
+      configuration:
+        base_path: ${workspace.file_path}
+        env: ${var.env}
+        volume_path: ${var.volume_path}
+        catalog: ${var.catalog}
+
+      environment:
+        dependencies:
+          # We include every dependency defined by pyproject.toml by defining an editable environment
+          # that points to the folder where pyproject.toml is deployed.
+          # - --editable ${workspace.file_path}
+          - ${workspace.file_path}/dist/onedata-0.0.1-py3-none-any.whl
+
+          

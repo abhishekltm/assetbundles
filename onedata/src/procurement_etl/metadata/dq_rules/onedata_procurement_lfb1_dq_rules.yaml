@@ -1,0 +1,5 @@
+dq_rules:
+  - name: not_null_pks
+    rule: "vendor_id IS NOT NULL"
+  - name: price_greater_2000
+    rule: "price > 2000"

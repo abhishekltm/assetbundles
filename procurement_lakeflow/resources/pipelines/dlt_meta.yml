@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    pipeline_dlt_meta:
+      name: dlt_meta_${var.env}
+      configuration:
+        bundle.env: ${var.env}
+      libraries:
+        - glob:
+            include: ../../src/dlt_meta/procurement/pipelines/**
+      schema: ${var.schema}
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog}
+      serverless: true
+      root_path: ../../src/dlt_meta/procurement
+      

@@ -1,0 +1,44 @@
+bundle:
+  name: onedata
+  uuid: ebaa554e-9b5e-477b-a22a-80d1ba76f168
+
+sync:
+  include:
+    - dist/*.whl
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+artifacts:
+  python_artifact:
+    type: whl
+    build: uv build --wheel
+variables:
+  catalog:
+    description: The catalog to use
+  env:
+    description: environment to deploy
+  volume_path:
+    description: source_path location
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-2e428544-5bd8.cloud.databricks.com/
+    variables:
+      env: dev
+      catalog: dev_catalog
+      volume_path: /Volumes/workspace/dev/landing/procurement
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-2e428544-5bd8.cloud.databricks.com/
+      root_path: /Workspace/Users/abhishek.kumar21@ltimindtree.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      env: prod
+      catalog: prod_catalog
+      volume_path: /Volumes/workspace/prod/landing/procurement
+    permissions:
+      - user_name: abhishek.kumar21@ltimindtree.com
+        level: CAN_MANAGE

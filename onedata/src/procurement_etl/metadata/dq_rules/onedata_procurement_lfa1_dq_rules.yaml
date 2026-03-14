@@ -1,0 +1,5 @@
+dq_rules:
+  - name: not_null_pks
+    rule: "vendor_id IS NOT NULL"
+  - name: not_null_country
+    rule: "country IS NOT NULL"
