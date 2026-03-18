@@ -23,25 +23,6 @@ def load_active_entities(layer):
            active.append(item["name"])
     return active
 
-def get_entity_filter(layer):
-    entity_filter = None
-    try:
-        val = spark.conf.get("entity_filter")
-        if val and val.strip():
-            entity_filter = val.strip()
-    except Exception:
-        pass
-    if entity_filter:
-        requested = [e.strip() for e in entity_filter.split(",")]
-        active = load_active_entities(layer)
-        resolved = [e for e in requested if e in active]
-        if not resolved:
-            raise ValueError(
-                f"[entity_filter] None of {requested} are active for layer '{layer}'. "
-                f"Active entities: {active}"
-            )
-        return resolved
-    return load_active_entities(layer)
     
 
 
