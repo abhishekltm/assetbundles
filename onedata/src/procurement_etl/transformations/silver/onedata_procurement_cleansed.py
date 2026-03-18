@@ -5,6 +5,7 @@ from procurement_etl.lib.column_mapper import apply_column_mapping
 from procurement_etl.lib.apply_dq_rules import dq_split
 
 catalog = spark.conf.get("catalog")
+
 def _register_silver(entity):
     silver_cfg       = load_metadata(entity, "silver")
     bronze_table     = f"{catalog}.bronze.{silver_cfg["table"]["bronze_table"]}"
@@ -36,5 +37,3 @@ def _register_silver(entity):
         return invalid_df
 for _entity in load_active_entities("silver"):
    _register_silver(_entity)
-
-   

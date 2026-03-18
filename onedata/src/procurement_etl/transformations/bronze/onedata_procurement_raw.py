@@ -5,15 +5,10 @@ from procurement_etl.lib.metadata_loader import load_metadata, load_active_entit
 # Load configuration values from Spark config and metadata
 source_path = spark.conf.get("volume_path")
 catalog = spark.conf.get("catalog")
+
 def _register_bronze(entity):
     bronze_cfg = load_metadata(entity, "bronze")
     bronze_table = f"{catalog}.{bronze_cfg["table"]["schema"]}.{bronze_cfg["table"]["name"]}"
-
-    # schema_evolution_flag = bronze_cfg.get("source",{}).get("schema_evolution", True)
-    # if schema_evolution_flag:
-    #     schema_evolution_mode = "addNewColumns"
-    # else:
-    #     schema_evolution_mode = "none"
 
     @dp.table(
         name= bronze_table,

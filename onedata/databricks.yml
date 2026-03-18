@@ -31,7 +31,6 @@ targets:
       catalog: dev_catalog
       volume_path: /Volumes/workspace/dev/landing/procurement
 
-
   prod:
     mode: production
     workspace:
