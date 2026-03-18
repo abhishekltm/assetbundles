@@ -37,5 +37,3 @@ def _register_silver(entity):
         return invalid_df
 for _entity in load_active_entities("silver"):
    _register_silver(_entity)
-
-   

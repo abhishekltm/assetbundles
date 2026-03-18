@@ -29,5 +29,3 @@ def load_active_entities(layer):
 
 
  
-
-
