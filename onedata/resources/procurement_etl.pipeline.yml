@@ -22,9 +22,7 @@ resources:
 
       environment:
         dependencies:
-          # We include every dependency defined by pyproject.toml by defining an editable environment
-          # that points to the folder where pyproject.toml is deployed.
-          # - --editable ${workspace.file_path}
           - ${workspace.file_path}/dist/onedata-0.0.1-py3-none-any.whl
+
 
           

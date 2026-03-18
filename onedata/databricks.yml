@@ -19,6 +19,7 @@ variables:
     description: environment to deploy
   volume_path:
     description: source_path location
+
 targets:
   dev:
     mode: development
@@ -29,6 +30,7 @@ targets:
       env: dev
       catalog: dev_catalog
       volume_path: /Volumes/workspace/dev/landing/procurement
+
 
   prod:
     mode: production

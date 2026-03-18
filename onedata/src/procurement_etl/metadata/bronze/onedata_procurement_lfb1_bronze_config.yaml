@@ -1,0 +1,9 @@
+source:
+  entity: lfb1
+  format: csv
+
+table:
+  schema: bronze
+  name: vendorCompany
+
+schema_evolution_mode: false

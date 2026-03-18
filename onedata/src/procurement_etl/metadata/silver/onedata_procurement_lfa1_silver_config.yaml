@@ -1,0 +1,25 @@
+table:
+  bronze_table: vendor
+  silver_table: cleansed_vendor
+  quarantine_table: cleansed_vendor_quarantine
+
+keys:
+  primary: vendor_id
+
+dq_rules:
+  - name: not_null_pks
+    rule: "vendor_id IS NOT NULL"
+  - name: not_null_country
+    rule: "country IS NOT NULL"
+
+mapping:
+  columns:
+    LIFNR: vendor_id
+    NAME1: vendor_name
+    LAND1: country
+    ORT01: city
+    REGIO: region
+    STRAS: street
+    PSTLZ: postal_code
+    ERDAT: created_date
+  

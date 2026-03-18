@@ -1,0 +1,26 @@
+table:
+  bronze_table: vendorCompany
+  silver_table: cleansed_vendorCompany
+  quarantine_table: cleansed_vendorCompany_quarantine
+
+keys:
+  primary: vendor_id
+
+dq_rules:
+  - name: not_null_pks
+    rule: "vendor_id IS NOT NULL"
+
+mapping:
+  columns:
+    LIFNR: vendor_id
+    BUKRS: company_code
+    AKONT: reconciliation_account
+    ZTERM: payment_terms
+    ZWELS: payment_method
+    FDGRV: planning_group
+    ERDAT: created_date
+    PRICE: price
+
+  
+
+  
