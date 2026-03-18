@@ -1,9 +1,10 @@
 source:
-  path: lfa1
+  entity: lfa1
   format: csv
+  schema_evolution: true
 
 table:
+  schema: bronze
   name: vendor
 
-audit_columns:
-  ingest_ts: _ingest_ts
+

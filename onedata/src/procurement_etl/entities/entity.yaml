@@ -1,0 +1,12 @@
+entities:
+  - name: lfa1
+    enabled: true
+    layers:
+      - bronze
+      - silver
+  - name: lfb1
+    enabled: true
+    layers:
+      - bronze
+      - silver
+

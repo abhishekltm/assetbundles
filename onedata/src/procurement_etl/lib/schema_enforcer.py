@@ -1,24 +1,23 @@
+from pyspark.sql.functions import col, lit
 
-from pyspark.sql.functions import col, lit, to_date
-from pyspark.sql.types import *
+def enforce_schema(df, schema_dict, drop_extra_cols=True):
+    if not schema_dict:
+        print("No schema config provided")
+        return df
 
-def enforce_schema(df, schema_cfg):
-    for c in schema_cfg["columns"]:
-        col_name = c["name"]
-        data_type = c["type"]
+    for column_name, dtype in schema_dict.items():
+        if column_name in df.columns:
+            df = df.withColumn(
+                column_name,
+                col(column_name).cast(dtype)
+            )
+        else:
+            df = df.withColumn(
+                column_name,
+                lit(None).cast(dtype)
+            )
 
-        if data_type == "string":
-            df = df.withColumn(col_name, col(col_name).cast(StringType()))
-        elif data_type == "int":
-            df = df.withColumn(col_name, col(col_name).cast(IntegerType()))
-        elif data_type == "double":
-            df = df.withColumn(col_name, col(col_name).cast(DoubleType()))
-        elif data_type == "float":
-            df = df.withColumn(col_name, col(col_name).cast(FloatType()))
-        elif data_type == "date":
-            df = df.withColumn(col_name, to_date(col(col_name), "dd-MM-yyyy"))
-        elif data_type == "timestamp":
-            df = df.withColumn(col_name, col(col_name).cast(TimestampType()))
-
+    if drop_extra_cols:
+        df = df.select(*schema_dict.keys())
     return df
  
