@@ -19,6 +19,7 @@ resources:
         env: ${var.env}
         volume_path: ${var.volume_path}
         catalog: ${var.catalog}
+        entity: "all"
 
       environment:
         dependencies:
