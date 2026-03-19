@@ -22,6 +22,7 @@ def load_active_entities(layer):
        if is_enabled and has_layer:
            active.append(item["name"])
     return active
+ 
 
     
 
