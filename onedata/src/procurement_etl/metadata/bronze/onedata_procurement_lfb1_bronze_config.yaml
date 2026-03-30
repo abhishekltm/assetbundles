@@ -1,9 +1,21 @@
+pipeline:
+  domain: procurement
+  layer: bronze
+
 source:
   entity: lfb1
+  sub_folder: lfb1
   format: csv
+  header: true
 
-table:
+target:
   schema: bronze
-  name: vendorCompany
+  table: vendorCompany
 
-schema_evolution_mode: false
+partition:
+  columns:
+    - _ingest_date
+
+options:
+  schema_evolution_mode: addNewColumns
+  infer_column_types: false

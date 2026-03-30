@@ -1,10 +1,22 @@
+pipeline:
+  domain: procurement
+  layer: bronze
+
 source:
   entity: lfa1
+  sub_folder: lfa1
   format: csv
-  schema_evolution: true
+  header: true
 
-table:
+target:
   schema: bronze
-  name: vendor
+  table: vendor
 
+partition:
+  columns:
+    - _ingest_date
 
+options:
+  schema_evolution_mode: addNewColumns
+  infer_column_types: false
+  max_files_per_trigger: 100

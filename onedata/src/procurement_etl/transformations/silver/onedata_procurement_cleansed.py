@@ -1,10 +1,9 @@
 from pyspark import pipelines as dp
 from pyspark.sql.functions import current_timestamp
-from procurement_etl.lib.metadata_loader import load_metadata, load_active_entities
-from procurement_etl.lib.column_mapper import apply_column_mapping
-from procurement_etl.lib.apply_dq_rules import dq_split
+from procurement_etl.lib.utilities import load_metadata, load_active_entities, apply_column_mapping, dq_split
 
 catalog = spark.conf.get("catalog")
+
 def _register_silver(entity):
     silver_cfg       = load_metadata(entity, "silver")
     bronze_table     = f"{catalog}.bronze.{silver_cfg["table"]["bronze_table"]}"
