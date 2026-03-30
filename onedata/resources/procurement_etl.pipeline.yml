@@ -19,8 +19,9 @@ resources:
         env: ${var.env}
         volume_path: ${var.volume_path}
         catalog: ${var.catalog}
-        entity: "all"
+        table_name: ${var.table_name}
 
       environment:
         dependencies:
           - ${workspace.file_path}/dist/onedata-0.0.1-py3-none-any.whl
+ 

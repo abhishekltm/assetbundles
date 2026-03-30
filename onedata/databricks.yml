@@ -19,17 +19,24 @@ variables:
     description: environment to deploy
   volume_path:
     description: source_path location
+  table_name:
+    description: "specific tables to load"
+    default: ""
 
 targets:
   dev:
     mode: development
     default: true
+    lock:
+      enabled: false
     workspace:
       host: https://dbc-2e428544-5bd8.cloud.databricks.com/
     variables:
       env: dev
       catalog: dev_catalog
       volume_path: /Volumes/workspace/dev/landing/procurement
+      table_name: ""
+
 
   prod:
     mode: production
